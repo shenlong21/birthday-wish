@@ -11,14 +11,14 @@ const Hero: React.FC = () => {
         className="container"
       >
         <motion.h1 
-          style={{ fontSize: 'clamp(4rem, 15vw, 8rem)', color: 'var(--primary-pink)', marginBottom: '1rem' }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          style={{ fontSize: 'clamp(3.5rem, 12vw, 7rem)', color: 'var(--primary)', marginBottom: '1.5rem', lineHeight: 1.1 }}
+          animate={{ scale: [1, 1.02, 1] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          Happy Birthday, Laddooo!
+          Happy Birthday, <br/>Laddoooo!
         </motion.h1>
         <motion.p 
-          style={{ fontSize: '1.5rem', maxWidth: '600px', margin: '0 auto 3rem auto', fontStyle: 'italic' }}
+          style={{ fontSize: '1.4rem', maxWidth: '650px', margin: '0 auto 3.5rem auto', color: 'var(--text-main)', fontStyle: 'italic', fontWeight: 300 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           whileTap={{ scale: 0.95 }}
         >
           <button onClick={() => document.getElementById('letter')?.scrollIntoView({ behavior: 'smooth' })}>
-            Read My Letter
+            Open My Letter
           </button>
         </motion.div>
       </motion.div>
