@@ -1,0 +1,210 @@
+:root {
+  --primary-pink: #DB2777;
+  --secondary-rose: #F472B6;
+  --elegant-gold: #CA8A04;
+  --pastel-pink: #FDF2F8;
+  --deep-maroon: #831843;
+  --soft-shadow: 0 10px 30px -10px rgba(219, 39, 119, 0.2);
+  --gold-shadow: 0 4px 15px rgba(202, 138, 4, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cormorant Infant', serif;
+  background-color: var(--pastel-pink);
+  color: var(--deep-maroon);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, .romantic-script {
+  font-family: 'Great Vibes', cursive;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 6rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  background-color: var(--elegant-gold);
+  color: white;
+  border: none;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--gold-shadow);
+  font-family: 'Cormorant Infant', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(202, 138, 4, 0.4);
+  background-color: #d49a05;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Envelope Styles */
+.envelope-wrapper {
+  perspective: 1000px;
+  width: 350px;
+  height: 250px;
+  position: relative;
+  cursor: pointer;
+  margin: 2rem auto;
+}
+
+.envelope {
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-pink);
+  position: relative;
+  border-radius: 0 0 10px 10px;
+  box-shadow: var(--soft-shadow);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.envelope-front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 175px solid transparent;
+  border-right: 175px solid transparent;
+  border-bottom: 125px solid var(--secondary-rose);
+  bottom: 0;
+  z-index: 3;
+}
+
+.envelope-left {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 125px solid transparent;
+  border-bottom: 125px solid transparent;
+  border-left: 175px solid var(--secondary-rose);
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.envelope-right {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 125px solid transparent;
+  border-bottom: 125px solid transparent;
+  border-right: 175px solid var(--primary-pink);
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.envelope-top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 175px solid transparent;
+  border-right: 175px solid transparent;
+  border-top: 125px solid var(--primary-pink);
+  top: 0;
+  left: 0;
+  z-index: 4;
+  transform-origin: top;
+  transition: transform 0.4s ease 0.1s;
+}
+
+.envelope-wrapper.open .envelope-top {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.letter-content {
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  background: white;
+  left: 5%;
+  bottom: 5%;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.5s ease;
+  z-index: 2;
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.envelope-wrapper.open .letter-content {
+  transform: translateY(-120px);
+  z-index: 5;
+  height: auto;
+  max-height: 400px;
+  width: 400px;
+  left: -25px;
+  overflow-y: auto;
+  padding: 2rem;
+}
+
+.letter-content h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--primary-pink);
+  margin-bottom: 1rem;
+}
+
+.letter-content p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+@media (max-width: 450px) {
+  .envelope-wrapper {
+    width: 280px;
+    height: 200px;
+  }
+  .envelope-front, .envelope-left, .envelope-right, .envelope-top {
+    border-width: 140px 100px; /* This needs better math for small screens */
+  }
+  /* simplified for mobile */
+  .envelope-front { border-left-width: 140px; border-right-width: 140px; border-bottom-width: 100px; }
+  .envelope-left { border-top-width: 100px; border-bottom-width: 100px; border-left-width: 140px; }
+  .envelope-right { border-top-width: 100px; border-bottom-width: 100px; border-right-width: 140px; }
+  .envelope-top { border-left-width: 140px; border-right-width: 140px; border-top-width: 100px; }
+  
+  .envelope-wrapper.open .letter-content {
+    width: 320px;
+    left: -20px;
+    transform: translateY(-100px);
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+}
