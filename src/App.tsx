@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import Letter from './components/Letter';
 import Gallery from './components/Gallery';
+import WishingWell from './components/WishingWell';
+import Toothless from './components/Toothless';
 import FloatingElements from './components/FloatingElements';
 import ThemeSwitcher from './components/ThemeSwitcher';
 
@@ -20,6 +22,8 @@ const App: React.FC = () => {
       <Hero />
       <Letter />
       <Gallery />
+      <WishingWell />
+      <Toothless />
       
       <footer style={{ 
         padding: '3rem', 
