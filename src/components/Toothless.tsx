@@ -6,7 +6,7 @@ const Toothless: React.FC = () => {
   const [showPlasma, setShowPlasma] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleAction = (e: React.MouseEvent) => {
+  const handleAction = () => {
     // Prevent click from bubbling if needed, but we want the user to be able to click through
     // if they aren't directly on the dragon silhouette.
     if (isDiving) return;
