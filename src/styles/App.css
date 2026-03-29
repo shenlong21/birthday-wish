@@ -3,7 +3,9 @@
   --arcane-blue: #38bdf8;
   --arcane-purple: #a855f7;
   --arcane-cyan: #22d3ee;
+  --arcane-pink: #f02ad3;
   --arcane-glow: 0 0 30px rgba(56, 189, 248, 0.5);
+  --wild-magic: linear-gradient(45deg, var(--arcane-blue), var(--arcane-purple), var(--arcane-pink));
   
   /* Default: Romantic Pink */
   --primary: #DB2777;
@@ -307,21 +309,53 @@ button:hover {
   z-index: 2;
 }
 
-/* Wishing Well Styles */
-.well-pool {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, var(--secondary), var(--primary));
-  position: relative;
-  margin: 3rem auto;
-  cursor: pointer;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1), inset 0 0 40px rgba(255,255,255,0.2);
+/* 3D Gem Styles */
+.gem-container {
+  perspective: 1200px;
+  width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border: 8px solid white;
+  position: relative;
+}
+
+.gem-body {
+  width: 100px;
+  height: 160px;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.gem-facet {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.3);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform-origin: 50% 0%;
+}
+
+.gem-facet.top {
+  top: 50%;
+}
+
+.gem-facet.bottom {
+  top: 50%;
+  transform-origin: 50% 0%;
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+
+@keyframes sheen {
+  0% { background-position: -200% -200%; }
+  100% { background-position: 200% 200%; }
+}
+
+.iridescent {
+  background-size: 200% 200%;
+  animation: sheen 5s infinite linear;
 }
 
 /* Dragon Animations */
@@ -341,6 +375,30 @@ button:hover {
 
 .dragon-purring {
   animation: purr 0.15s linear infinite;
+}
+
+@keyframes wild-flicker {
+  0%, 100% { opacity: 1; filter: brightness(1) saturate(1); }
+  10% { opacity: 0.8; filter: brightness(1.2) saturate(1.5); }
+  20% { opacity: 1; filter: brightness(0.9) saturate(1); }
+  30% { opacity: 0.7; filter: brightness(1.5) saturate(2); }
+  40% { opacity: 1; filter: brightness(1.1) saturate(1.2); }
+}
+
+@keyframes screen-shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(5px, 5px) rotate(1deg); }
+  50% { transform: translate(-5px, -5px) rotate(-1deg); }
+  75% { transform: translate(5px, -5px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.unstable-energy {
+  animation: wild-flicker 0.2s infinite;
+}
+
+.shake-intense {
+  animation: screen-shake 0.1s infinite;
 }
 
 @media (max-width: 768px) {
