@@ -55,6 +55,7 @@ const Letter: React.FC = () => {
               <p>Happy Birthday! I wanted to take a moment to tell you how much you mean to me.</p>
               <p>You are the most incredible person I've ever known. Your kindness, your laugh, and the way you see the world never fail to amaze me.(AI hai AI)</p>
               <p>I know you have so much in your plate right now. The office work and then ghar ka sab. I tried to be a good peaceful place for you, even tho not always but kabhi kabhi. Giving you the space and support i can give. Lets keep rolling...</p>
+              <p>So kal dhurandhar or maybe bowling? After the morning routine.. :)</p>
               <p style={{ fontFamily: 'Great Vibes', fontSize: '1.8rem', textAlign: 'right', color: 'var(--primary)', marginTop: '2rem' }}>2 neuron person</p>
             </div>
           </div>
